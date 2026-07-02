@@ -30,8 +30,10 @@ jobs:
           images: ghcr.io/notniknot/web-apps
           tags: |
             type=raw,value=main,enable=${{ github.ref == 'refs/heads/main' }}
-            type=raw,value=preview-pr-${{ github.event.pull_request.number }},enable=${{ github.event_name == 'pull_request' }}
+            type=raw,value=preview-pr-${{ github.event.pull_request.number }}-{{sha}},enable=${{ github.event_name == 'pull_request' }}
             type=sha,prefix=sha-
+        env:
+          DOCKER_METADATA_PR_HEAD_SHA: "true"
 
       - uses: docker/build-push-action@v6
         with:
