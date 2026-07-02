@@ -27,7 +27,7 @@ var page = template.Must(template.New("page").Parse(`<!doctype html>
   <h1>{{.AppName}}</h1>
   <dl>
     <dt>Preview PR</dt><dd>{{.PreviewPR}}</dd>
-    <dt>Version</dt><dd>{{.Version}}</dd>
+    <dt>Version 2</dt><dd>{{.Version}}</dd>
     <dt>Hostname</dt><dd>{{.Hostname}}</dd>
     <dt>Shared secret</dt><dd>{{.SharedSecret}}</dd>
     <dt>Generated secret</dt><dd>{{.GeneratedSecret}}</dd>
@@ -85,4 +85,3 @@ func main() {
 	log.Printf("listening on %s", addr)
 	log.Fatal(http.ListenAndServe(addr, nil))
 }
-
